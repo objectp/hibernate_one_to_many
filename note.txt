@@ -1,0 +1,42 @@
+Hibernate development process:
+ 1.add hibernate configuration fiels 
+ 2.annotate java class
+ 3.develop java code to perform database process 
+ ######################################################################################
+ hibernate.conf.xml file is used to configure hibernate to connect to database
+ ######################################################################################
+ Entity class is a POJO class mapped to connect ot a database 
+ ######################################################################################
+ There are two options for mapping with hibernate
+ 1.using xml configuration file
+ 2.using annotation
+ ######################################################################################
+ using annotation:
+ 1.step one map class to database table
+ 2.map field to database column
+ ######################################################################################
+ SessionFactory class:
+ 1.reads the Hibenrate configuration file and then
+ 2.creates Session objects , 
+ 3.creates heavy wheigt object, only create once in your app and reuse it again and again 
+ ######################################################################################
+ Session class object:
+ 1.wraps a jdbc connection 
+ 2.main object to save and retrieve objects 
+ 3.short lived object 
+ 4.retrieved from SessionFactory object
+ ######################################################################################
+ In hibernate you retrieve an object using primery key
+ ######################################################################################
+ Hibernate has query languge for retrieving objects called HQL
+ 1.similar in nature to sql
+ 2.queries using where, like ,order by , join in etc
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
