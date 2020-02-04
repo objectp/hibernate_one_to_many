@@ -4,9 +4,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.objectp.hibernate.demo.entity.Student;
+import com.objectp.hibernate.demo.entity.InstractorDetail;
+import com.objectp.hibernate.demo.entity.Instructor;
 
-public class CreateStudentDemo {
+public class DeleteDemo {
 
 	public static void main(String[] args) {
 
@@ -14,22 +15,29 @@ public class CreateStudentDemo {
 		
 		  SessionFactory factory = new Configuration()
 				                   .configure("hibernate.cfg.xml")
-				                   .addAnnotatedClass(Student.class)
+				                   .addAnnotatedClass(Instructor.class)
+				                   .addAnnotatedClass(InstractorDetail.class)
 				                   .buildSessionFactory();
 		// Create a session 
 		  Session session = factory.getCurrentSession();
 		  
 		try {
-			System.out.println("Creating new student object");
-			// Create a student object
-			Student tempStudent = new Student("Teka", "Fiss", "teka@objectp.com");
 			
 			// Start a transaction 
 			session.beginTransaction();
 			
-			// Save the student object
-			System.out.println("Saving the student ...");
-			session.save(tempStudent);
+			// Get instructor by primary key/id
+			int theId = 1;
+			Instructor tempInstructor = session.get(Instructor.class, theId);
+			
+			System.out.println("Found instructor: " + tempInstructor);
+			
+			// Delete the instractor 
+			if (tempInstructor != null) {
+				// Note: Will ALSO delete associated "detials" object in another table
+				// becuase of CascadeType.ALL
+				session.delete(tempInstructor);
+			}
 			
 			// Commit the transaction 
 			session.getTransaction().commit();

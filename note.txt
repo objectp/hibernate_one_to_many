@@ -26,11 +26,73 @@ Hibernate development process:
  3.short lived object 
  4.retrieved from SessionFactory object
  ######################################################################################
- In hibernate you retrieve an object using primery key
+ In hibernate you retrieve an object using primary key
  ######################################################################################
  Hibernate has query languge for retrieving objects called HQL
  1.similar in nature to sql
  2.queries using where, like ,order by , join in etc
+ ######################################################################################
+ Hibernate Advanced Mapping :
+ 1.In the database you must likly to have multiple tables
+ 2.relationship between the tables
+ 3.need to model this with Hibernate
+ 4.thiese are one-to-one, one-to-many,may-to-one, many-to-many
+ ######################################################################################
+ Cascade: 
+ 1.applying operation to related data entities 
+ 2.if you save an object will save the data linked to the object in another place
+ ######################################################################################
+ Fetch types:
+ 1.eager vs lazy loading 
+ 2.eager retrieves everything
+ 3.lazy retrieves on request
+ ######################################################################################
+ Relationships: 
+ 1.Uni-Directional 
+ 2.Bi-Directional 
+ ######################################################################################
+ Development process one-to-one mapping:
+ 1.define database class
+ 2.create instructor details class
+ 3.create instructors class
+ 4.create main app.
+ ######################################################################################
+ Referential Integrity:
+ 1.prevents operations that destroy relationships between tables  
+ 2.ensures only valid data inserted into the foreign key column
+ ######################################################################################
+ Entity Life-cycle:
+ 1.Detached: not associated with Hibernate session 
+ 2.Merge: if an object is detached from hibernate session, merge will re-atach to he session
+ 3.Persist: transition new instances to managed state. next flush/commit will save in db
+ 4.Remove: transitions managed entity to be removed. next flush/commit will delete from the db
+ 5.Refresh: reload synch object with data from db. prevents state data 
+ ######################################################################################
+ @OneToOne Cascade Types:
+ 1.Persist: if entity is persisted / saved, related entity will also peristed
+ 2.Remove: if entity is removed / deleted, related entity will also be deleted
+ 3.Refresh: if entity is refreshed related entity will alos be refreshed 
+ 4.Detach: if entity is detached (not associated w/ session, then related entity will also be detached 
+ 5.Merge: if entity is merged, then related entity will also be merged 
+ 6.All: all of the above cascad type together.
+ ######################################################################################
+ Schema: 
+ 1.a collection of tables
+ ######################################################################################
+ Development process one-to-one(Bi-directonal)
+ 1.make update to InstractorDetial class
+ 2.add getter/setter methods for Instractor
+ 3.add @OneToOne annotation
+ 4.create main app
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
