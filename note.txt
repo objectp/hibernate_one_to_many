@@ -84,6 +84,12 @@ Hibernate development process:
  2.add getter/setter methods for Instractor
  3.add @OneToOne annotation
  4.create main app
+ ######################################################################################
+ Development process one-to-many:
+ 1.prep work - define database table
+ 2.create course class
+ 3.update instructor class
+ 4.create main app
  
  
  
